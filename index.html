@@ -1,0 +1,58 @@
+
+<html>
+<script src="jquery-3.2.1.js"></script>
+<script>
+
+//  cd = Course Data
+var cd = [
+    {
+      name: "Course 1",
+      description: "This course does this and that",
+      cost: "R100",
+      duration: "1 day"
+    },
+    {
+      name: "Course 2",
+      description: "This course covers now and then",
+      cost: "R100",
+      duration: "1 day"
+    },
+    {
+      name: "Course 3",
+      description: "This course teaches why and what",
+      cost: "R100",
+      duration: "1 day"
+    }
+];
+
+// cc = Course Constructor
+var cc = function(name, description, cost, duration) {
+  return new cc.init(name, description, cost, duration)
+}
+
+cc.prototype = {
+
+  buildAllCourses : function() {
+
+    for(var i = 0; i < cd.length; i++) {
+        $("body").append(
+            "<h1>" + cd[i].name + "</h1>" +
+            "<i>" + cd[i].description + "</i>"
+        );
+    }
+
+  }
+
+}
+
+cc.init = function(name, description, cost, duration) {
+  this.name = name || "";
+  this.name = description || "";
+  this.name = cost || "";
+  this.name = duration || "";
+}
+
+cc.init.prototype = cc.prototype;
+
+</script>
+</html>
